@@ -1,5 +1,5 @@
 <script setup lang="ts">
-
+  usePageBreadcrumbs().setItems([{ name: 'About Us', path: '/about' }])
 </script>
 
 <template>
@@ -25,5 +25,5 @@
         </div>
       </div>
     </div>
-		</div>
+	</div>
 </template>

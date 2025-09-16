@@ -1,11 +1,9 @@
 
 <template>
-  <div>
-    <Header />
-    <main>
-      <slot />
-    </main>
-    <Footer />
-    <Modals />
-  </div>
+  <!-- <Header /> -->
+  <!-- <main> -->
+    <slot />
+  <!-- </main> -->
+  <!-- <Footer /> -->
+  <!-- <Modals /> -->
 </template>

@@ -78,8 +78,10 @@ if (chooseType) {
 
 // Add fixed header
 const headerMain = document.querySelector(".header-menu");
+console.log(headerMain, 'headerMain')
 if(headerMain)
 window.addEventListener("scroll", () => {
+  console.log('scrolled')
   if (window.scrollY > 100) {
     headerMain.classList.add("fixed");
   } else {
@@ -1792,6 +1794,7 @@ const handleActiveImgWhenColorChange = (products) => {
 
 // Append child
 const listFourProduct = document.querySelectorAll(".list-product.four-product");
+console.log(listFourProduct, 'listFourProduct')
 const listSixProduct = document.querySelector(
   ".list-product.six-product .swiper .swiper-wrapper"
 );

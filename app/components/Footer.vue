@@ -1,6 +1,7 @@
 
 <template>
-  		<div id="footer" class="footer">
+	<div>
+  	<div id="footer" class="footer">
 			<div class="footer-main bg-surface">
 				<div class="container">
 					<div class="content-footer md:py-[60px] py-10 flex justify-between flex-wrap gap-y-8">
@@ -126,4 +127,5 @@
 			</div>
 		</div>
     <a class="scroll-to-top-btn" href="#top-nav"><i class="ph-bold ph-caret-up"></i></a>
+	</div>
 </template>

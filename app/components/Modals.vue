@@ -1,7 +1,8 @@
 
+<!-- Modal -->
 <template>
-  		<!-- Modal -->
-      <div class="modal-newsletter">
+	<div>
+    <div class="modal-newsletter">
 			<div class="container h-full flex items-center justify-center w-full">
 				<div class="modal-newsletter-main">
 					<div class="main-content flex rounded-[20px] overflow-hidden w-full">
@@ -899,4 +900,5 @@
 				</div>
 			</div>
 		</div>
+	</div>
 </template>

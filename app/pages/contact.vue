@@ -1,3 +1,7 @@
+<script setup lang="ts">
+  usePageBreadcrumbs().setItems([{ name: 'Contact', path: '/contact' }])
+</script>
+
 <template>
   <div class="contact-us md:py-20 py-10">
     <div class="container">

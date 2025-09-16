@@ -5,6 +5,7 @@ useHead({
     // { rel: 'stylesheet', href: '/css/style.css' },
     //  { rel: 'stylesheet', href: '/css/output-scss.css' },
     // { rel: 'stylesheet', href: '/css/output-tailwind.css' },
+    { rel: 'stylesheet', href: '/css/icomoon/style.css' },
     { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap' },
   ],
   script: [
