@@ -1,3 +1,16 @@
+
+<script setup lang="ts">
+import { Product } from '#components';
+import { onMounted } from 'vue'
+// const { data, pending, error } = await useFetch('/posts')
+// import { httpGet, httpPost } from '~/utils/http'
+const products = await fetch('/data/Product.json').then(response => response.json())
+onMounted(() => {
+  // Append child
+})
+console.log(products, 'data, pending, error')
+</script>
+
 <template>
   <div class="what-new-block filter-product-block md:pt-20 pt-10">
     <div class="container">
@@ -16,6 +29,7 @@
       </div>
       <div class="list-product four-product hide-product-sold grid xl:grid-cols-4 sm:grid-cols-3 grid-cols-2 md:gap-[30px] gap-4 md:mt-10 mt-6">
         <!-- List four product -->
+        <Product :product="products[0]"/>
       </div>
     </div>
   </div>

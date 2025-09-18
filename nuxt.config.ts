@@ -7,8 +7,16 @@ export default defineNuxtConfig({
     '@/assets/css/tailwind.css',
     '@/assets/plugins/swiper.scss',
   ],
+  runtimeConfig: {
+    public: {
+      apiBase: process.env.BASE_URL, 
+    },
+  },
+  plugins: [
+    
+  ],
   modules: [
-    '@nuxt/content',
+    // '@nuxt/content',
     '@nuxt/eslint',
     '@nuxt/fonts',
     '@nuxt/icon',
@@ -17,5 +25,15 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     'nuxt-swiper',
     '@pinia/nuxt'
-  ]
+  ],
+  dir: {
+    // public: 'static', // 👈 вместо public будет папка static/
+  }
+  // imports: {
+  //   dirs: [
+  //     'composables',
+  //     'stores',
+  //     'utils',   // 👈 теперь всё из utils/* будет автоподхватываться
+  //   ],
+  // },
 })

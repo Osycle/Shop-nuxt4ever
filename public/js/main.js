@@ -351,8 +351,10 @@ const handleItemModalWishlist = () => {
   wishlistStore = localStorage.getItem("wishlistStore");
 
   if (wishlistStore) {
-    wishlistIcon.querySelector("span").innerHTML =
-      JSON.parse(wishlistStore).length;
+    console.log(wishlistIcon, 'wishlistIcon')
+    if(wishlistIcon)
+      wishlistIcon.querySelector("span").innerHTML =
+        JSON.parse(wishlistStore).length;
   }
 
   // Set wishlist item
@@ -1768,7 +1770,6 @@ if (filterProductImg) {
 // Change product img when active color in list color
 const handleActiveImgWhenColorChange = (products) => {
   const listColors = document.querySelectorAll(".list-color");
-
   listColors.forEach((list) => {
     const colorItems = list.querySelectorAll(".color-item");
 

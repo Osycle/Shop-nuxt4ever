@@ -1,9 +1,9 @@
 
 <template>
-  <!-- <Header /> -->
-  <!-- <main> -->
+  <Header />
+  <main>
     <slot />
-  <!-- </main> -->
-  <!-- <Footer /> -->
-  <!-- <Modals /> -->
+  </main>
+  <Footer />
+  <Modals />
 </template>
