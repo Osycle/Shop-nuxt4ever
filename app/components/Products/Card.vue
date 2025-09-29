@@ -1,17 +1,18 @@
-<script setup lang="ts">
+<script setup>
 import Countdown from './Countdown.vue';
 import AddToCard from './AddToCard.vue';
 import RightBtns from './RightBtns.vue';
 
-import { onMounted, ref, reactive } from 'vue'
+// import { onMounted, ref, reactive } from 'vue'
 
-  const { productsAll } = defineProps<{
-    product: object,
-    productsAll: any[],
-  }>()
+  const { productsAll } = defineProps({
+    product: Object,
+    productsAll: Array
+  })
 
   onMounted(() => {
     addEventToProductItem(productsAll)
+    handleActiveImgWhenColorChange(productsAll);
   })
 
   //////////
@@ -227,6 +228,32 @@ import { onMounted, ref, reactive } from 'vue'
       });
     });
   }
+  // Change product img when active color in list color
+  const handleActiveImgWhenColorChange = (products) => {
+    const listColors = document.querySelectorAll(".list-color");
+    listColors.forEach((list) => {
+      const colorItems = list.querySelectorAll(".color-item");
+
+      colorItems.forEach((color) => {
+        color.addEventListener("click", () => {
+          const activeColor = color.querySelector(".tag-action")?.textContent;
+          const productMain = color.closest(".product-main");
+          const dataItem = productMain?.getAttribute("data-item");
+          const product = products.find((item) => item.id === dataItem);
+          const imgActive = product?.variation.find(
+            (item) => item.color === activeColor
+          ).image;
+          if (imgActive) {
+            productMain.querySelector(".product-img img").remove();
+            productMain.querySelector(".product-img").innerHTML = `
+                              <img src="${imgActive}" alt="img" class="w-full h-full object-cover duration-700" />
+                          `;
+          }
+        });
+      });
+    });
+  };
+
 
   function addEventToProductItem(products) {
     // Product item

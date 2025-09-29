@@ -3,7 +3,7 @@
     "id": "1",
     "category": "fashion",
     "type": "top",
-    "name": "mesh shirt",
+    "name": "mesh shirt test",
     "gender": "women",
     "new": true,
     "sale": false,
@@ -25,7 +25,7 @@
         "color": "red",
         "colorCode": "#DB4444",
         "colorImage": "/images/product/color/48x48.png",
-        "image": "/images/product/1000x1000.png"
+        "image": "/images/product/1000x1000-new.png"
       },
       {
         "color": "yellow",
@@ -35,11 +35,11 @@
       }
     ],
     "thumbImage": [
-      "/images/product/1000x1000.png",
+      "/images/product/1000x1000-new.png",
       "/images/product/1000x1000.png"
     ],
     "images": [
-      "/images/product/1000x1000.png",
+      "/images/product/1000x1000-new.png",
       "/images/product/1000x1000.png",
       "/images/product/1000x1000.png",
       "/images/product/1000x1000.png"

@@ -1172,31 +1172,6 @@ if (filterProductImg) {
 }
 
 
-// Change product img when active color in list color
-const handleActiveImgWhenColorChange = (products) => {
-  const listColors = document.querySelectorAll(".list-color");
-  listColors.forEach((list) => {
-    const colorItems = list.querySelectorAll(".color-item");
-
-    colorItems.forEach((color) => {
-      color.addEventListener("click", () => {
-        const activeColor = color.querySelector(".tag-action")?.textContent;
-        const productMain = color.closest(".product-main");
-        const dataItem = productMain?.getAttribute("data-item");
-        const product = products.find((item) => item.id === dataItem);
-        const imgActive = product?.variation.find(
-          (item) => item.color === activeColor
-        ).image;
-        if (imgActive) {
-          productMain.querySelector(".product-img img").remove();
-          productMain.querySelector(".product-img").innerHTML = `
-                            <img src="${imgActive}" alt="img" class="w-full h-full object-cover duration-700" />
-                        `;
-        }
-      });
-    });
-  });
-};
 
 // Append child
 const listFourProduct = document.querySelectorAll(".list-product.four-product");
