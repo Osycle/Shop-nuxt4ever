@@ -1,7 +1,7 @@
 
-<script setup lang="ts">
-// import { Products } from '#components';
-import { onMounted, ref, reactive } from 'vue'
+<script setup>
+
+// import { onMounted, ref, reactive } from 'vue'
 // const { data, pending, error } = await useFetch('/posts')
 // import { httpGet, httpPost } from '~/utils/http'
 
@@ -10,7 +10,7 @@ let productsTypes = [ "top", "t-shirt", "dress", "sets", "shirt"]
 let currentTab = ref(productsTypes[0])
 let products = reactive({});
 productsTypes.forEach(e=>{
-  products[e] = productsAll.filter((product: { type: string; }) => product.type === e).slice(0, 4)
+  products[e] = productsAll.filter((product) => product.type === e).slice(0, 4)
 })
 // currentTab
 console.log(products, 'products')

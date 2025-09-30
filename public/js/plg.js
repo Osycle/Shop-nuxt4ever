@@ -32,19 +32,19 @@ var swiperBannerTop = new Swiper(".swiper-banner-top", {
 
 
 // Slider
-var swiperSlider = new Swiper(".swiper-slider", {
-  spaceBetween: 0,
-  slidesPerView: 1,
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-  loop: true,
-  autoplay: {
-    delay: 4000,
-    disableOnInteraction: false,
-  },
-});
+// var swiperSlider = new Swiper(".swiper-slider", {
+//   spaceBetween: 0,
+//   slidesPerView: 1,
+//   pagination: {
+//     el: ".swiper-pagination",
+//     clickable: true,
+//   },
+//   loop: true,
+//   autoplay: {
+//     delay: 4000,
+//     disableOnInteraction: false,
+//   },
+// });
 
 
 // Collection
