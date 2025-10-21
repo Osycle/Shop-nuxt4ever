@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
   usePageBreadcrumbs().setItems([{ name: 'Contact', path: '/contact' }])
 </script>
 

@@ -1,6 +1,6 @@
 
 <script setup>
-// Create 10 slides
+
 const swiperRef = ref(null)
 const swiper = useSwiper(swiperRef, {
   spaceBetween: 0,
@@ -11,7 +11,7 @@ const swiper = useSwiper(swiperRef, {
   },
   loop: true,
   autoplay: {
-    delay: 4000,
+    delay: 5000,
     disableOnInteraction: false,
   },
 })
@@ -27,7 +27,7 @@ const items = [
     img: "/images/slider/bg1-1.png",
   },
 ]
-// const slides = ref(Array.from({ length: 10 }))
+
 
 
 
@@ -43,7 +43,10 @@ const items = [
     <div class="slider-block style-one bg-linear xl:h-[860px] lg:h-[800px] md:h-[580px] sm:h-[500px] h-[350px] max-[420px]:h-[320px] w-full">
       <div class="slider-main h-full w-full">
         <div class="swiper swiper-slider h-full relative">
-          <swiper-container ref="swiperRef" :init="false">
+          <swiper-container 
+            ref="swiperRef" 
+            class="swiper-wrapper" 
+            :init="false">
             <swiper-slide
               class="swiper-slide"
               v-for="(slide, idx) in items"
@@ -63,15 +66,13 @@ const items = [
               </div>
             </swiper-slide>
           </swiper-container>
+          <div class="swiper-pagination"></div>
         </div>
       </div>
-    </div>
-    <button @click="swiper.prev()">
-      Prev
-    </button>
+    </div>          
   </ClientOnly>
 </template>
 
 <style lang="scss">
-  
+ 
 </style>

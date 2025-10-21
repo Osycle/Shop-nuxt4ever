@@ -1,10 +1,5 @@
-<script setup lang="ts">
-import { Collections } from '#components';
-
-// import { WhatNew } from '#components';
-
-  const breadcrumbs = usePageBreadcrumbs()
-  breadcrumbs.setItems([])
+<script setup>
+  usePageBreadcrumbs().setItems([])
 </script>
 
 <template>

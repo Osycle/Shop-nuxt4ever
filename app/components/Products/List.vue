@@ -1,7 +1,6 @@
 <script setup lang="ts">
   defineProps<{
     products: object,
-    productsAll: array,
     
   }>()
 </script>
@@ -11,7 +10,6 @@
       <ProductsCard 
         v-for="(product) in products" 
         :key="product.id" 
-        :productsAll="productsAll"
         :product="product"
       />
     <!-- </div> -->

@@ -24,7 +24,7 @@
       {
         "color": "red",
         "colorCode": "#DB4444",
-        "colorImage": "/images/product/color/48x48.png",
+        "colorImage": "/images/product/color/48x48-new.png",
         "image": "/images/product/1000x1000-new.png"
       },
       {
@@ -811,8 +811,8 @@
       {
         "color": "green",
         "colorCode": "#D2EF9A",
-        "colorImage": "/images/product/color/48x48.png",
-        "image": "/images/product/1000x1000.png"
+        "colorImage": "/images/product/color/48x48-new2.png",
+        "image": "/images/product/1000x1000-new2.png"
       },
       {
         "color": "red",

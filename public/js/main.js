@@ -3,7 +3,6 @@
 /**** Add fixed header ****/
 /**** Marquee banner top ****/
 /**** Menu mobile ****/
-/**** Modal Newsletter ****/
 /**** Modal Search ****/
 /**** Redirect to search-results when enter or click form search ****/
 /**** Filter product in search-results ****/
@@ -134,31 +133,6 @@ backMenuBtns.forEach((btn) => {
   });
 });
 
-// Modal Newsletter
-const modalNewsletter = document.querySelector(".modal-newsletter");
-const modalNewsletterMain = document.querySelector(
-  ".modal-newsletter .modal-newsletter-main"
-);
-const closeBtnModalNewsletter = document.querySelector(".modal-newsletter .close-newsletter-btn");
-
-
-if (modalNewsletter) {
-  setTimeout(() => {
-    modalNewsletterMain.classList.add('open')
-  }, 3000);
-
-  modalNewsletter.addEventListener('click', () => {
-    modalNewsletterMain.classList.remove('open')
-  })
-
-  closeBtnModalNewsletter.addEventListener('click', () => {
-    modalNewsletterMain.classList.remove('open')
-  })
-
-  modalNewsletterMain.addEventListener('click', (e) => {
-    e.stopPropagation()
-  })
-}
 
 // Modal Search
 const searchIcon = document.querySelector(".search-icon");
@@ -279,10 +253,10 @@ loginIcon?.addEventListener("click", () => {
 });
 
 // initialize the variable(cart, wishlist, compare) in local storage
-let cartStore = localStorage.getItem("cartStore");
-if (cartStore === null) {
-  localStorage.setItem("cartStore", JSON.stringify([]));
-}
+// let cartStore = localStorage.getItem("cartStore");
+// if (cartStore === null) {
+//   localStorage.setItem("cartStore", JSON.stringify([]));
+// }
 
 let wishlistStore = localStorage.getItem("wishlistStore");
 if (wishlistStore === null) {
@@ -294,10 +268,10 @@ if (compareStore === null) {
   localStorage.setItem("compareStore", JSON.stringify([]));
 }
 
-let quickViewStore = localStorage.getItem("quickViewStore");
-if (quickViewStore === null) {
-  localStorage.setItem("quickViewStore", JSON.stringify([]));
-}
+// let quickViewStore = localStorage.getItem("quickViewStore");
+// if (quickViewStore === null) {
+//   localStorage.setItem("quickViewStore", JSON.stringify([]));
+// }
 
 // Modal Wishlist
 const wishlistIcon = document.querySelector(".wishlist-icon");
@@ -984,29 +958,7 @@ const updateCompareIcons = () => {
 
 handleItemModalCompare();
 
-// Modal Quickview
-const modalQuickview = document.querySelector(".modal-quickview-block");
-const modalQuickviewMain = document.querySelector(
-  ".modal-quickview-block .modal-quickview-main"
-);
-const closeQuickviewIcon = document.querySelector(
-  ".modal-quickview-main .close-btn"
-);
 
-const openModalQuickview = () => {
-  modalQuickviewMain.classList.add("open");
-};
-
-const closeModalQuickview = () => {
-  modalQuickviewMain.classList.remove("open");
-};
-
-modalQuickview?.addEventListener("click", closeModalQuickview);
-closeQuickviewIcon?.addEventListener("click", closeModalQuickview);
-
-modalQuickviewMain?.addEventListener("click", (e) => {
-  e.stopPropagation();
-});
 
 
 

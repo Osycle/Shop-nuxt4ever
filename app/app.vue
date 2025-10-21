@@ -15,10 +15,6 @@ useHead({
     // { src: '/js/plg.js', defer: true },
   ]
 })
-// const dataTwice = await $fetch('/data/Product.json')
-// console.log(dataTwice)
-
-
 </script>
 
 <template>

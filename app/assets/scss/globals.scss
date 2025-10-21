@@ -35,12 +35,13 @@ body {
   line-height: 26px;
   color: var(--black);
   font-weight: 400;
-  overflow-x: hidden;
   user-select: none;
   scroll-behavior: smooth;
   font-family: 'Instrument Sans', sans-serif;
 }
-
+body{
+  overflow-x: hidden;
+}
 body.overflow-unset {
   overflow-x: unset;
 }
@@ -372,5 +373,11 @@ textarea:focus {
     line-height: 16px;
     padding: 10px 16px;
     border-radius: 8px;
+  }
+}
+
+html{
+  .vfm--overlay{
+    background-color: transparent;
   }
 }

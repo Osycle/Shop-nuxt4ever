@@ -1,11 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
-  devtools: { enabled: !true },
+  devtools: { enabled: true },
   css: [
     '@/assets/scss/style.scss',
     '@/assets/css/tailwind.css',
     '@/assets/plugins/swiper.scss',
+    'vue-final-modal/style.css',
   ],
   runtimeConfig: {
     public: {
@@ -17,6 +18,7 @@ export default defineNuxtConfig({
   ],
   modules: [
     // '@nuxt/content',
+    '@pinia/nuxt',
     '@nuxt/eslint',
     '@nuxt/fonts',
     '@nuxt/icon',
@@ -24,7 +26,6 @@ export default defineNuxtConfig({
     '@nuxt/scripts',
     '@nuxtjs/tailwindcss',
     'nuxt-swiper',
-    '@pinia/nuxt'
   ],
   dir: {
     // public: 'static', // 👈 вместо public будет папка static/
