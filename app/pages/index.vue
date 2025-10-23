@@ -1,5 +1,6 @@
 <script setup>
   usePageBreadcrumbs().setItems([])
+  useProductsBreadcrumbs().setItems([])
 </script>
 
 <template>

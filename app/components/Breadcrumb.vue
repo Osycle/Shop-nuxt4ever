@@ -10,7 +10,7 @@
           <div class="text-content">
             <div class="heading2 text-center">{{breadcrumbs[breadcrumbs.length-1].name}}</div>
             <div class="link flex items-center justify-center gap-1 caption1 mt-3">
-              <NuxtLink to="/">Homepage</NuxtLink>
+              <NuxtLink to="/">Главная</NuxtLink>
               <span v-for="(crumb, index) in breadcrumbs" :key="index" class="flex items-center gap-2">
                 <i class="ph ph-caret-right text-sm text-secondary2"></i>
                 <div class="text-secondary2 capitalize">

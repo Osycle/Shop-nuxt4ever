@@ -22,7 +22,7 @@
   <figure class="product-item grid-type">
     <div class="product-main cursor-pointer block">
       <div class="product-thumb bg-white relative overflow-hidden rounded-2xl">
-        <Nuxt-link :to="`/product/${product.id}`">
+        <Nuxt-link :to="`/products/${product.id}`">
           <div v-if="product.sale" class="product-tag text-button-uppercase text-white bg-red px-3 py-0.5 inline-block rounded-full absolute top-3 left-3 z-[1]">Sale</div>
           <div v-if="product.new" class="product-tag text-button-uppercase bg-green px-3 py-0.5 inline-block rounded-full absolute top-3 left-3 z-[1]">New</div>
           <RightBtns />

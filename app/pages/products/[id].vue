@@ -7,8 +7,8 @@ const swiper = useSwiper(swiperRef, {
   slidesPerView: 1,
 })
 useProductsBreadcrumbs().setItems([
-  { name: 'Товары', path: `/product` },
-  { name: product?.name, path: `/product/${route.params.id}` }
+  { name: 'Товары', path: `/products` },
+  { name: product?.name, path: `/products/${route.params.id}` }
   ])
 </script>
 <template>

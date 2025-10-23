@@ -439,8 +439,8 @@
 									</div>
 								</li>
 								<li>
-									<a href="#!" class="text-xl font-semibold flex items-center justify-between mt-5"
-										>Product
+									<a href="#!" class="text-xl font-semibold flex items-center justify-between mt-5">
+										Product
 										<span class="text-right">
 											<i class="ph ph-caret-right text-xl"></i>
 										</span>
