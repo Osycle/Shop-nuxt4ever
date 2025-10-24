@@ -22,17 +22,17 @@
   <figure class="product-item grid-type">
     <div class="product-main cursor-pointer block">
       <div class="product-thumb bg-white relative overflow-hidden rounded-2xl">
+        <div v-if="product.sale" class="product-tag text-button-uppercase text-white bg-red px-3 py-0.5 inline-block rounded-full absolute top-3 left-3 z-[1]">Sale</div>
+        <div v-if="product.new" class="product-tag text-button-uppercase bg-green px-3 py-0.5 inline-block rounded-full absolute top-3 left-3 z-[1]">New</div>
+        <RightBtns />
         <Nuxt-link :to="`/products/${product.id}`">
-          <div v-if="product.sale" class="product-tag text-button-uppercase text-white bg-red px-3 py-0.5 inline-block rounded-full absolute top-3 left-3 z-[1]">Sale</div>
-          <div v-if="product.new" class="product-tag text-button-uppercase bg-green px-3 py-0.5 inline-block rounded-full absolute top-3 left-3 z-[1]">New</div>
-          <RightBtns />
           <div class="product-img w-full h-full aspect-[3/4]">
             <img class="w-full h-full object-cover duration-700" :src="currentColor.image" >
             <img class="w-full h-full object-cover duration-700" :src="currentColor.image" >
           </div>
-          <Countdown v-if="product.sale" />
-          <AddToCart :product="product"/>
         </Nuxt-link>
+        <Countdown v-if="product.sale" />
+        <AddToCart :product="product"/>
       </div>
       <div class="product-infor mt-4 lg:mb-7">
         <div class="product-sold sm:pb-4 pb-2">

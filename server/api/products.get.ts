@@ -4,7 +4,7 @@ export default defineEventHandler(async (event) => {
   const data = await import('~~/public/data/Product.json')
 
   const filtered = data.default.filter(p => 
-    !query.category || p.category === query.category
+    !query.key || p[query.key] === query.value
   )
 
   return filtered

@@ -1,10 +1,31 @@
 <script setup>
 
 const route = useRoute()
-const query = ref({type: "t-shirt", page: 2})
-const productsAll = await useProducts().getProducts(query)
-const products = ref(productsAll).value.slice(0, 4)
-// const product = await useProducts().getProduct(route.params.id)
+
+const query = ref({key: "type", value: "pro"})
+
+
+const products = ref([])
+const productsTypes = ref([])
+
+
+products.value = await useProducts().getProducts(query.value)
+productsTypes.value = await useProducts().getCounts({ key: "type" })
+onMounted(async () => {
+  
+
+  
+  console.log(productsTypes)
+})
+
+const changeType = async () => {
+  products.value = await useProducts().getProducts({ key: "type", value: "top" })
+  console.log(products.value)
+}
+console.log(products, 'products')
+
+
+
 const swiperRef = ref(null)
 const swiper = useSwiper(swiperRef, {
   slidesPerView: 1,
@@ -21,37 +42,16 @@ usePageBreadcrumbs().setItems([
           <div class="filter-type-block pb-8 border-b border-line">
             <div class="heading6">Products Type</div>
             <div class="list-type filter-type menu-tab mt-4">
-              <div class="item tab-item flex items-center justify-between cursor-pointer" data-item="t-shirt">
-                <div class="type-name text-secondary has-line-before hover:text-black capitalize">t-shirt</div>
-                <div class="text-secondary2 number">6</div>
-              </div>
-              <div class="item tab-item flex items-center justify-between cursor-pointer" data-item="dress">
-                <div class="type-name text-secondary has-line-before hover:text-black capitalize">dress</div>
-                <div class="text-secondary2 number">6</div>
-              </div>
-              <div class="item tab-item flex items-center justify-between cursor-pointer" data-item="top">
-                <div class="type-name text-secondary has-line-before hover:text-black capitalize">top</div>
-                <div class="text-secondary2 number">6</div>
-              </div>
-              <div class="item tab-item flex items-center justify-between cursor-pointer" data-item="swimwear">
-                <div class="type-name text-secondary has-line-before hover:text-black capitalize">swimwear</div>
-                <div class="text-secondary2 number">6</div>
-              </div>
-              <div class="item tab-item flex items-center justify-between cursor-pointer" data-item="shirt">
-                <div class="type-name text-secondary has-line-before hover:text-black capitalize">shirt</div>
-                <div class="text-secondary2 number">6</div>
-              </div>
-              <div class="item tab-item flex items-center justify-between cursor-pointer" data-item="underwear">
-                <div class="type-name text-secondary has-line-before hover:text-black capitalize">underwear</div>
-                <div class="text-secondary2 number">6</div>
-              </div>
-              <div class="item tab-item flex items-center justify-between cursor-pointer" data-item="sets">
-                <div class="type-name text-secondary has-line-before hover:text-black capitalize">sets</div>
-                <div class="text-secondary2 number">6</div>
-              </div>
-              <div class="item tab-item flex items-center justify-between cursor-pointer" data-item="accessories">
-                <div class="type-name text-secondary has-line-before hover:text-black capitalize">accessories</div>
-                <div class="text-secondary2 number">6</div>
+              <div 
+                @click="changeType"
+                class="item tab-item flex items-center justify-between cursor-pointer" 
+                v-for="(item, key) in productsTypes?.slice(0, 8)" :key="key">
+                <div class="type-name text-secondary has-line-before hover:text-black capitalize">
+                  {{ item.key }}
+                </div>
+                <div class="text-secondary2 number">
+                  {{ item.count }}
+                </div>
               </div>
             </div>
           </div>

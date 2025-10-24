@@ -31,18 +31,18 @@ export const useProducts = ()=>{
     }
   }
   
-  // const getTypes = async (params = {}) => {
-  //   try {
-  //     const { data, error } = await useFetch('/api/types', {
-  //       method: "GET",
-  //       query: params,
-  //     })
-  //     if (error.value) throw error.value
-  //     return data.value
-  //   } catch (error) {
-  //     console.log(error)
-  //   }
-  // }
+  const getCounts = async (params = {}) => {
+    try {
+      const { data, error } = await useFetch('/api/counts', {
+        method: "GET",
+        query: params,
+      })
+      if (error.value) throw error.value
+      return data.value
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   const handleAddToCart = (product: object, nocheck: boolean) =>{
     cart.addToCart(product, nocheck)
@@ -68,5 +68,6 @@ export const useProducts = ()=>{
       handleQuickview, 
       getProducts,
       getProduct,
+      getCounts,
   }
 }
