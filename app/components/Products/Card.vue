@@ -12,6 +12,7 @@
   onMounted(() => {
     if(product.variation.length)
       currentColor.value = product.variation[0]
+
   })
 
   
@@ -28,21 +29,20 @@
         <Nuxt-link :to="`/products/${product.id}`">
           <div class="product-img w-full h-full aspect-[3/4]">
             <img class="w-full h-full object-cover duration-700" :src="currentColor.image" >
-            <img class="w-full h-full object-cover duration-700" :src="currentColor.image" >
           </div>
         </Nuxt-link>
         <Countdown v-if="product.sale" />
         <AddToCart :product="product"/>
       </div>
       <div class="product-infor mt-4 lg:mb-7">
-        <div class="product-sold sm:pb-4 pb-2">
+        <!-- <div class="product-sold sm:pb-4 pb-2">
           <div class="progress bg-line h-1.5 w-full rounded-full overflow-hidden relative">
             <div 
               class="progress-sold bg-red absolute left-0 top-0 h-full" 
               style="width: ${Math.floor((product.sold / product.quantity) * 100)}%">
             </div>
           </div>
-          <div class="flex items-center justify-between gap-3 gap-y-1 flex-wrap mt-2">
+          <div v-if="product.quantity != undefined" class="flex items-center justify-between gap-3 gap-y-1 flex-wrap mt-2">
             <div class="text-button-uppercase">
               <span class="text-secondary2 max-sm:text-xs">Sold:
               </span>
@@ -54,19 +54,20 @@
               <span class="max-sm:text-xs">{{ product.quantity - product.sold }}</span>
             </div>
           </div>
-        </div>
+        </div> -->
         <div class="product-name text-title duration-300">{{product.name}}</div>
-        <div class="list-color list-color-image max-md:hidden flex items-center gap-3 flex-wrap duration-500">
+        <div v-if="product.variation.length" class="list-color list-color-image max-md:hidden flex items-center gap-3 flex-wrap duration-500">
           <div 
             v-for="(item, key) in product.variation"
             :key="key"
             :data-key="key"
             class="color-item w-12 h-12 rounded-xl duration-300 relative" 
-            :style="`background-color: ${item.colorCode};`"
+            :class="{'active': currentColor.image == item.image}"
+            :style="`background-color: ${item.color_code};`"
             @click="currentColor = item"
             ref="colorItems"
             >
-            <img :src="item.colorImage" alt="color" class="rounded-xl w-full h-full object-cover">
+            <!-- <img :src="item.image" alt="color" class="rounded-xl w-full h-full object-cover"> -->
             <div class="tag-action bg-black text-white caption2 capitalize px-1.5 py-0.5 rounded-sm">
               {{item.color}}
             </div>

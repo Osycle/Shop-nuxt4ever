@@ -7,14 +7,15 @@
 // const { data, pending, error } = await useFetch('/posts')
 // import { httpGet, httpPost } from '~/utils/http'
 
-const { getProducts } = useProducts()
+const { getProducts, getProductsV2 } = useProducts()
 const productsAll = await getProducts()
-
+const productsZ = await getProductsV2()
+console.log(productsZ)
 
 
 const products = reactive({});
 [ "top", "t-shirt", "dress", "sets", "shirt"].forEach(e=>{
-  products[e] = productsAll.filter((product) => product.type === e).slice(0, 4)
+  products[e] = productsZ.filter((product) => product.product_type.name === e)?.slice(0, 40)
 })
 onMounted(() => {
 })
@@ -24,7 +25,8 @@ onMounted(() => {
 <template>
   <div class="what-new-block filter-product-block md:pt-20 pt-10">
     <div class="container">
-      <UITabs :products="products"/>
+      <ProductsList :products="productsZ"/>
+      <!-- <UITabs :products="products"/> -->
     </div>
   </div>
 </template>

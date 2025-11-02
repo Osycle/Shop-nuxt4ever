@@ -8,6 +8,20 @@ export const useProducts = ()=>{
   const config = useRuntimeConfig()
   const cart = useStoreCart()
 
+  const getProductsV2 = async (params = {}) => {
+    try {
+      const data = await $fetch('http://127.0.0.1:8000/api/v1/productlist/', {
+        method: "GET",
+        query: params,
+        // body: { categories: ['phones', 'laptops'] }
+      })
+      console.log(data, 'ssdsdsdsds')
+      // if (error.value) throw error.value
+      return data
+    } catch (error) {
+      console.log(error)
+    }
+  }
   const getProducts = async (params = {}) => {
     try {
       const { data, error } = await useFetch('/api/products', {
@@ -69,5 +83,7 @@ export const useProducts = ()=>{
       getProducts,
       getProduct,
       getCounts,
+
+      getProductsV2,
   }
 }

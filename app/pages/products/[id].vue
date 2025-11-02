@@ -85,9 +85,6 @@ useProductsBreadcrumbs().setItems([
           <div class="list-action mt-6">
             <ProductsChooseColor :product="product" />
             <ProductsChooseQuantity :product="product" />
-            <div class="button-block mt-5">
-              <a href="checkout.html" class="button-main w-full text-center">Buy It Now</a>
-            </div>
             <div class="more-infor mt-6">
               <div class="flex items-center gap-4 flex-wrap">
                 <div class="flex items-center gap-1">

@@ -13,10 +13,12 @@
         <!-- color-item -->
         <div 
           v-for="(item, key) in colors" :key="key"
-          class="color-item w-12 h-12 rounded-xl duration-300 relative active"
+          class="color-item w-12 h-12 rounded-xl duration-300 relative"
+          :class="{'active': currentColor.image == item.image}"
+          :style="`background-color: ${item.color_code};`"
           @click="currentColor = item"
         >
-          <img :src="item.colorImage" alt="color" class="rounded-xl" />
+          <!-- <img :src="item.image" alt="color" class="rounded-xl" /> -->
           <div class="tag-action bg-black text-white caption2 capitalize px-1.5 py-0.5 rounded-sm">
             {{ item.color }}
           </div>

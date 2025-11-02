@@ -3,9 +3,7 @@
   import { useVfm } from 'vue-final-modal'
   const vfm = useVfm()
   const { getProducts, handleQuickview } = useProducts()
-  const products = await getProducts()
   const cart = useStoreCart()
-  const alsoLikes = ref(products.slice(0, 4))
   const modalMain = ref()
   onMounted(()=>{
     setTimeout(()=>{modalMain.value.classList.add('open')}, 1);
@@ -19,60 +17,17 @@
 <template>
   <div class="modal-cart-block" @click="close">
     <div class="modal-cart-main flex" @click.stop ref="modalMain">
-      <div class="left w-1/2 border-r border-line py-6 max-md:hidden">
-        <div class="heading5 px-6 pb-3">You May Also Like</div>
-        <div class="list px-6">
-          <div 
-            v-for="(item, key) in alsoLikes" :key="key"
-            class="product-item item py-5 flex items-center justify-between gap-3 border-b border-line" 
-          >
-            <div class="infor flex items-center gap-5">
-              <div class="bg-img">
-                <img :src="item.images?.[0]" alt="img" class="w-[100px] aspect-square flex-shrink-0 rounded-lg" />
-              </div>
-              <div class="">
-                <div class="name text-button">{{item.name}}</div>
-                <div class="flex items-center gap-2 mt-2">
-                  <div class="product-price text-title">{{'$' + item.price + '.00'}}</div>
-                  <div class="product-origin-price text-title text-secondary2">
-                    <del><del>{{'$' + item.originPrice + '.00'}}</del></del>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div 
-              @click="() => handleQuickview(item)"
-              class="quick-view-btn button-main py-3 px-5 bg-black hover:bg-green text-white rounded-full whitespace-nowrap">QUICK VIEW</div>
-          </div>
-        </div>
-      </div>
-      <div class="right cart-block md:w-1/2 w-full py-6 relative overflow-hidden">
+      <div class="right cart-block  w-full py-6 relative overflow-hidden">
         <div class="heading px-6 pb-3 flex items-center justify-between relative">
-          <div class="heading5">Shopping Cart</div>
+          <div class="heading5">Корзина</div>
           <div 
             @click="() => vfm.close('cart')"
             class="close-btn absolute right-6 top-0 w-6 h-6 rounded-full bg-surface flex items-center justify-center duration-300 cursor-pointer hover:bg-black hover:text-white">
             <i class="ph ph-x text-sm"></i>
           </div>
         </div>
-        <div class="time countdown-cart px-6">
-          <div class="flex items-center gap-3 px-5 py-3 bg-green rounded-lg">
-            <p class="text-3xl">🔥</p>
-            <div class="caption1">
-              Your cart will expire in <span class="text-red caption1 font-semibold"><span class="minute">04</span>:<span class="second">59</span></span> minutes!<br />
-              Please checkout now before your items sell out!
-            </div>
-          </div>
-        </div>
         <div class="heading banner mt-3 px-6">
-          <div class="text">
-            Buy <span class="text-button"> $<span class="more-price">150</span>.00 </span>
-            <span>more to get </span>
-            <span class="text-button">freeship</span>
-          </div>
-          <div class="tow-bar-block mt-3">
-            <div class="progress-line"></div>
-          </div>
+          Товары
         </div>
         <div class="list-product px-6">
           <template v-if="cart.items.length">
@@ -81,12 +36,12 @@
               class="item py-5 flex items-center justify-between gap-3 border-b border-line">
               <div class="infor flex items-center gap-3 w-full">
                 <div class="bg-img w-[100px] aspect-square flex-shrink-0 rounded-lg overflow-hidden">
-                  <img :src="item.images?.[0]" alt="product" class="w-full h-full">
+                  <img :src="item.variation?.[0].image" alt="product" class="w-full h-full object-cover">
                 </div>
                 <div class="w-full">
                   <div class="flex items-center justify-between w-full">
                     <div class="name text-button">
-                      {{ item.name }} // {{ item.quantityCur }}
+                      {{ item.name }} | кол-во: {{ item.quantityCur }}
                     </div>
                     <div 
                       @click="() => cart.removeItem(item.id)"
@@ -96,7 +51,7 @@
                   </div>
                   <div class="flex items-center justify-between gap-2 mt-3 w-full">
                     <div class="flex items-center text-secondary2 capitalize">
-                      {{ item.sizes?.[0] }}/{{ item.variation?.[0].color }}
+                      {{ item.sizes?.[0].name }}/{{ item.variation?.[0].color }}
                     </div>
                     <div class="product-price text-title">${{ item.price }}</div>
                   </div>

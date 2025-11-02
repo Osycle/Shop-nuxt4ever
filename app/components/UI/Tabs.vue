@@ -58,9 +58,8 @@
         </div>
       </div>
     </div>
-    <div class="list-product four-product hide-product-sold grid xl:grid-cols-4 sm:grid-cols-3 grid-cols-2 md:gap-[30px] gap-4 md:mt-10 mt-6">
-      <!-- List four product -->
-      <ProductsList :products="products[currentTab]"/>
-    </div>
+    <!-- List four product -->
+    <ProductsList :products="products[currentTab]"/>
+    
   </div>
 </template>
